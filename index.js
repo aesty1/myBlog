@@ -35,30 +35,64 @@ const posts = [
 app.get("/posts", (req, res) => {
     return res.send(posts);
 });
+
 app.get("/", (req, res) => {
     return res.send("HELLO WORLD!");
 });
+
 app.get("/posts/:id", (req, res) => {
     const id = req.params.id;
     return res.send(posts[id]);
 });
+
 app.post("/posts", (req, res) => {
     const data = req.body;
     console.log(data);
     posts.push(data);
     return res.send(posts);
 });
-app.post("/auth/login", (req, res) => {
-   console.log(req.body);
-   const token = jwt.sign({
-       email: req.body.email,
-       password: req.body.password
-   }, "denis123");
-   return res.json({
-       success: true,
-       token
-   });
-});
+
+
+
+app.post("/auth/login", async (req, res) => {
+    try {
+        const user = await UserModel.findOne({ email: req.body.email });
+
+        if(!user) {
+            return res.status(400).json({
+                message: "Пользователь не найден"
+            })
+        }
+
+        const isValidPassword = await bcrypt.compare(req.body.password, user._doc.passwordHash);
+
+        if(!isValidPassword) {
+            return req.status(404).json({
+                message: "Неверный логин или пароль"
+            })
+        }
+
+        const token = jwt.sign(
+            {
+                _id: user._id
+            },
+            "KadirovDenis123"
+        )
+
+        const { passwordHash, ...userData } = user._doc;
+
+        res.json({
+            ...userData,
+            token
+        });
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({
+            message: "Не удалось авторизироваться"
+        })
+    }
+})
+
 app.post("/auth/register", registerValidation, async (req, res) => {
     try {
         const errors = validationResult(req);
@@ -100,6 +134,7 @@ app.post("/auth/register", registerValidation, async (req, res) => {
         })
     }
 })
+
 app.listen(3333, (err) => {
     if(err) {
         return console.log(err)
