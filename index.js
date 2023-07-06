@@ -1,9 +1,11 @@
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
-import { registerValidation } from "./validations/auth.js";
+import * as validations from "./validations.js";
 import checkAuth from "./utils/checkAuth.js";
 import * as UserController from "./controllers/UserController.js";
+import * as PostController from "./controllers/PostController.js";
+import multer from "multer";
 
 const app = express();
 
@@ -15,48 +17,44 @@ mongoose
     .then(() => console.log("Mongoose ok"))
     .catch((err) => console.log(err));
 
-const posts = [
-    {
-        title: "Hello world",
-        text: "If you are using the .btn class on its own, remember to at least define some explicit :focus and/or :focus-visible styles."
+const storage = multer.diskStorage({
+    destination: (_,__, cb) => {
+        cb(null, "uploads");
     },
-    {
-        title: "Hello world!",
-        text: "Bootstrap has a base .btn class that sets up basic styles such as padding and content alignment. By default, .btn controls have a transparent border and background color, and lack any explicit focus and hover styles."
-    },
-    {
-        title: "Variants",
-        text: "Bootstrap includes several button variants, each serving its own semantic purpose, with a few extras thrown in for more control."
+    filename: (_,file, cb) => {
+        cb(null, file.originalname);
     }
-];
+})
 
+const upload = multer({ storage });
 
-app.get("/posts", (req, res) => {
-    return res.send(posts);
-});
+app.use(express.json());
+app.use("/uploads", express.static("uploads"));
 
 app.get("/", (req, res) => {
     return res.send("HELLO WORLD!");
 });
 
-app.get("/posts/:id", (req, res) => {
-    const id = req.params.id;
-    return res.send(posts[id]);
-});
+app.get("/auth/me", checkAuth, UserController.getProfileInformation);
+app.post("/auth/login", validations.loginValidation, UserController.login);
+app.post("/auth/register", validations.registerValidation, UserController.register);
 
-app.get("/auth/me", checkAuth, UserController.getProfileInformation)
+app.get("/posts", PostController.getAllPosts);
+app.get("/posts/:id", PostController.getOne);
+app.post("/posts", checkAuth, validations.postCreateValidation, PostController.createPost);
+app.delete("/posts/:id", checkAuth, PostController.deletePost);
+app.patch("/posts/:id", checkAuth, PostController.updatePost);
 
-app.post("/posts", (req, res) => {
-    const data = req.body;
-    console.log(data);
-    posts.push(data);
-    return res.send(posts);
-});
+app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
+    res.json({
+        url: `/uploads/${req.file.originalname}`
+    })
+})
 
 
-app.post("/auth/login", UserController.login)
 
-app.post("/auth/register", registerValidation, UserController.register)
+
+
 
 app.listen(3333, (err) => {
     if(err) {

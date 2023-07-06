@@ -71,7 +71,7 @@ export const register = async (req, res) => {
             "KadirovDenis123"
         )
 
-        const { passwordHash, ...userData } = user._doc
+        const { passwordHash, ...userData } = user._doc;
 
         res.json({
             ...userData,
