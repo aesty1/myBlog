@@ -1,0 +1,10 @@
+@import "../../index.scss";
+
+.light {
+    background-image: var(--light);
+    background-repeat: no-repeat;
+    margin: auto 0;
+    width: 31px;
+    height: 31px;
+    transition: background-image 0.5s ease;
+}
