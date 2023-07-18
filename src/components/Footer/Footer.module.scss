@@ -1,0 +1,40 @@
+.root {
+    padding-top: 205px;
+    padding-bottom: 86px;
+}
+.text {
+    font-weight: 300;
+    color: var(--negative_primary_color);
+    margin: auto 0 0 0;
+}
+
+.inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    margin: auto;
+    width: 32px;
+    height: 32px;
+    transition: filter 0.3s ease;
+    filter: var(--filter);
+    &:hover {
+        filter: var(--icon_filter);
+    }
+}
+
+.buttons_container {
+    display: flex;
+    gap: 10px;
+}
+
+#telegram {
+    background: url("../../resources/telegram.jpg"), lightgray 50% / cover no-repeat;
+}
+#vk {
+    background: url("../../resources/vkontakte.jpg"), lightgray 50% / cover no-repeat;
+}
+#github {
+    background: url("../../resources/github.jpg"), lightgray 50% / cover no-repeat;
+}

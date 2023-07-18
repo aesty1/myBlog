@@ -1,0 +1,45 @@
+@import "../../index.scss";
+
+.root {
+    padding-top: 28px;
+}
+.inner {
+    display: flex;
+    justify-content: space-between;
+}
+.logo {
+    display: flex;
+    background-color: var(--negative_primary_color);
+    color: var(--primary_color);;
+    font-weight: 800;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.15px;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    width: 150px;
+    height: 45px;
+    p {
+        text-align: center;
+        margin: auto;
+    }
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 121px;
+}
+
+
+.login {
+    button {
+        height: 51px;   
+        color: var(--negative_primary_color);
+        text-align: center;
+        font-size: 19px;
+        font-weight: 800; 
+    } 
+}
+

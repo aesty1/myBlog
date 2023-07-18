@@ -1,0 +1,98 @@
+@import "../../index.scss";
+
+.root {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    width: 561px;
+    height: 429.194px;
+    filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.02));
+    border-radius: 25px;
+    background: var(--secondary_color);
+    position: relative;
+    &:hover {
+        .editButtons {
+            opacity: 1;
+        }
+        .imageCopy {
+            opacity: 0.3;
+        }
+        & {
+            -moz-transform: translate(0px, -2px);
+            -webkit-transform: translate(0px, -2px);
+            -o-transform: translate(0px, -2px);
+            -ms-transform: translate(0px, -2px);
+            transform: translate(0px, -2px);
+        }
+    }
+}
+
+.wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 18px;
+    padding-bottom: 35px;
+    p {
+        margin: 0;
+    }
+}
+
+.image {
+    width: 100%;
+    height: 235.473px;
+    margin-top: 0px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.imageCopy {
+    width: 102%;
+    height: 57%;
+    position: absolute;
+    filter: blur(50px);
+    margin: -10px 0 0 -5px;
+    z-index: -2;
+    opacity: 0;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    transition: opacity 0.5s ease;
+}
+
+.editButtons {
+    position: absolute;
+    opacity: 0;
+    background-color: var(--secondary_color);
+    border-radius: 25px;
+    right: 10px;
+    top: 10px;
+    transition: opacity 0.5s ease;
+}
+
+.author_text {
+    @include xs_text;
+    color: #949494;
+    font-weight: 500;
+    margin: 0
+}
+
+.theme_text {
+    @include xs_text;
+    color: $purple_color;
+    font-weight: 500;
+}
+
+.title {
+    color: var(--negative_primary_color);
+    @include lg_text;
+    font-weight: 700;
+    margin: 0;
+}
+
+.subtitle {
+    @include sm_text;
+    font-weight: 300;
+    color: var(--negative_primary_color);
+    padding-top: 5px;
+}
