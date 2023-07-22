@@ -4,11 +4,13 @@
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease;
+    margin-top: 46px;
     width: 561px;
     height: 429.194px;
     filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.02));
     border-radius: 25px;
     background: var(--secondary_color);
+    transition: background-color 0.1s;
     position: relative;
     &:hover {
         .editButtons {
@@ -24,6 +26,37 @@
             -ms-transform: translate(0px, -2px);
             transform: translate(0px, -2px);
         }
+    }
+}
+
+.rootFull {
+    width: 100%;
+    padding: 75px;
+    height: auto;
+    &:hover {
+        & {
+            -moz-transform: none;
+            -webkit-transform: none;
+            -o-transform: none;
+            -ms-transform: none;
+            transform: none;
+        }
+    }
+    .title {
+        @include xl_text;
+    }
+    .author_text {
+        font-weight: 500;
+        margin-top: 12px;
+    }
+    .subtitle {
+        color: var(--negative_primary_color);
+        leading-trim: both;
+        text-edge: cap;
+        @include md_text;
+        font-weight: 300;
+        line-height: 30px;
+        letter-spacing: 0.4px;
     }
 }
 

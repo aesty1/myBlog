@@ -54,7 +54,8 @@ body {
 }
 
 body {
-    background: var(--primary_color);
+    background-color: var(--primary_color);
+    transition: background-color 0.1s;
 }
 #root {
     min-height: 100%;

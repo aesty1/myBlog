@@ -1,0 +1,68 @@
+@import "../../index.scss";
+
+.root {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 300px;
+    padding: 75px;
+    border-radius: 25px;
+    background: var(--secondary_color);
+    position: relative;
+}
+
+.title {
+    @include xl_text;
+    color: var(--negative_primary_color);
+    font-weight: 700;
+    margin: 0;
+}
+
+.comments {
+    margin-top: 33px;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comment {
+    display: flex;
+    flex-direction: row;
+    
+    gap: 15px;
+    min-height: 77px;
+}
+
+.avatar {
+    width: 62px;
+    height: 62px;   
+}
+
+.comment_text {
+    p {
+        margin-top: 0px;
+    }
+    p:not(:last-child) {
+        margin-bottom: 7px;
+    }
+}
+
+.name {
+    @include sm_text;
+    font-weight: 500; 
+    color: var(--negative_primary_color);
+}
+
+.text {
+    @include xs_text;
+    font-weight: 300;
+    color: var(--negative_primary_color);
+}
+
+.date {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--negative_secondary_color);
+}
+

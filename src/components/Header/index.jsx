@@ -39,8 +39,8 @@ export const Header = () => {
                         {({ theme, setTheme }) => (
                         <LightToggle
                             onChange={() => {
-                            if (theme === themes.light) setTheme(themes.dark)
-                            if (theme === themes.dark) setTheme(themes.light)
+                                if (theme === themes.light) setTheme(themes.dark)
+                                if (theme === themes.dark) setTheme(themes.light)
                             }}
                         />
                         )}
