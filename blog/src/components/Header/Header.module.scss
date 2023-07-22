@@ -10,6 +10,7 @@
 .logo {
     display: flex;
     background-color: var(--negative_primary_color);
+    transition: background-color 0.2s;
     color: var(--primary_color);;
     font-weight: 800;
     font-size: 20px;
