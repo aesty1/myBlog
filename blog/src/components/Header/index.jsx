@@ -5,9 +5,8 @@ import { ThemeContext, themes } from "../../contexts/ThemeContext";
 
 import styles from './Header.module.scss';
 
-export const Header = () => {
+export const Header = ({onChange}) => {
     const isAuth = false;
-
     const onClickLogout = () => {};
 
     
@@ -29,11 +28,7 @@ export const Header = () => {
                             </Button>
                         </>
                     ) : (
-                        <>
-                            <a className={styles.login} href="/login">
-                                <button>LOGIN</button>
-                            </a>
-                        </>
+                        <button className={styles.login} onClick={onChange}>LOGIN</button>
                     )}
                     <ThemeContext.Consumer>
                         {({ theme, setTheme }) => (

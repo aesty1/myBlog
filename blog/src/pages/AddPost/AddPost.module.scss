@@ -1,0 +1,122 @@
+@import "../../index.scss";
+
+.root {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 125px;
+}
+
+.content {
+    width: 100%;
+    max-width: 100%;
+    padding: 75px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.02));
+    border-radius: 25px;
+    background: var(--secondary_color);
+    position: relative;
+    border: none;
+    outline: none;
+    &:hover {
+        & {
+            -moz-transform: none;
+            -webkit-transform: none;
+            -o-transform: none;
+            -ms-transform: none;
+            transform: none;
+        }
+    }
+}
+
+.header_text {
+    font-weight: 800; 
+    color: $grey_color;
+    @include xl_text;
+    border: none;
+    margin-bottom: 45px;
+}
+
+.input {
+    color: $grey_color;
+    @include sm_text;
+    font-weight: 700; 
+    border: none;
+    border-bottom: 1px solid $grey_color;
+    margin-bottom: 30px;
+}
+
+.editor {
+    max-width: 1005px;
+}
+
+.upload_button {
+    max-width: 180px;
+    text-align: center;
+    color: $grey_color;
+    @include sm_text;
+    font-weight: 700; 
+    margin-bottom: 30px;
+    border-bottom: 1px solid $grey_color;
+    cursor: pointer;
+}
+
+.publish_button {
+    display: flex;
+    height: 40.789px; 
+    background-color: var(--negative_primary_color);
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 7px 13px;
+    margin: 0;
+    margin-top: 50px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    &:hover {
+        -moz-transform: translate(0px, -2px);
+        -webkit-transform: translate(0px, -2px);
+        -o-transform: translate(0px, -2px);
+        -ms-transform: translate(0px, -2px);
+        transform: translate(0px, -2px);
+    }
+    p {
+        color: var(--secondary_color);
+        margin: auto;
+        font-weight: 500; 
+        @include sm_text;
+    }
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.cancel_button {
+    display: flex;
+    height: 40.789px; 
+    background-color: var(--primary_color);
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 7px 13px;
+    margin: 0;
+    margin-top: 50px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    &:hover {
+        -moz-transform: translate(0px, -2px);
+        -webkit-transform: translate(0px, -2px);
+        -o-transform: translate(0px, -2px);
+        -ms-transform: translate(0px, -2px);
+        transform: translate(0px, -2px);
+    }
+    p {
+        color: var(--negative_primary_color);
+        margin: auto;
+        font-weight: 500; 
+        @include sm_text;
+    }
+}
