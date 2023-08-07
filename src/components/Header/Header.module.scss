@@ -35,12 +35,11 @@
 
 
 .login {
-    button {
-        height: 51px;   
-        color: var(--negative_primary_color);
-        text-align: center;
-        font-size: 19px;
-        font-weight: 800; 
-    } 
+    height: 51px;   
+    color: var(--negative_primary_color);
+    text-align: center;
+    font-size: 19px;
+    font-weight: 800; 
+    cursor: pointer;
 }
 

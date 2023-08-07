@@ -1,0 +1,187 @@
+@import "../../index.scss";
+
+.root {
+    display: flex;
+    width: 400px;
+    height: 628px;
+    z-index: 6;
+    background-color: var(--primary_color);
+    border-radius: 25px; 
+    padding: 50px;
+    animation: 0.2s show ease;
+}
+
+@keyframes show {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    min-width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.signin, .login, .register {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+}
+
+.close_button {
+    cursor: pointer;
+    width: 30px;
+    img {
+        width: 100%;
+        filter: var(--filter);
+    }
+}
+
+.email_img {
+    filter: var(--filter);
+}
+
+.text {
+    margin: auto;
+    padding-left: 30px;
+    @include lg_text;
+    color: var(--negative_primary_color);
+    font-weight: 800; 
+    
+
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    margin: 80px auto 0 auto;
+}
+
+.button {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    background-color: var(--secondary_color);
+    border-radius: 25px;
+    padding: 7px 0px;
+    margin: 0;
+    text-decoration: none;
+    filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.02));
+    transition: transform 0.3s ease;
+    &:hover {
+        -moz-transform: translate(0px, -2px);
+        -webkit-transform: translate(0px, -2px);
+        -o-transform: translate(0px, -2px);
+        -ms-transform: translate(0px, -2px);
+        transform: translate(0px, -2px);
+    }
+    img {
+        margin: auto 0 auto 14px;
+        width: 30px;
+        height: 30px;
+    }
+    p {
+        @include sm_text;
+        color: var(--negative_primary_color);
+        text-align: center;
+        margin: auto;
+        padding-right: 44px;
+    }
+}
+
+.register_button {
+    display: flex;
+    width: 100%;
+    height: 64px;
+    background-color: var(--negative_primary_color);
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 7px 0px;
+    margin: 0;
+    margin-top: 50px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    &:hover {
+        -moz-transform: translate(0px, -2px);
+        -webkit-transform: translate(0px, -2px);
+        -o-transform: translate(0px, -2px);
+        -ms-transform: translate(0px, -2px);
+        transform: translate(0px, -2px);
+    }
+    p {
+        color: var(--secondary_color);
+        margin: auto;
+        font-weight: 600; 
+        @include sm_text;
+    }
+}
+
+.terms {
+    @include xs_text;
+    color: var(--negative_primary_color);
+    font-weight: 300; 
+    span {
+        font-weight: 400; 
+    }
+}
+
+.login_input {
+    display: flex;
+    height: 50px;
+    background-color: var(--secondary_color);
+    border-radius: 25px;
+    padding: 7px 0px 7px 24px;
+    margin: 0;
+    filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.02));
+    border: none;
+    font-weight: 600; 
+    color: $grey_color;
+    @include xs_text;
+}
+
+.register_link {
+    font-weight: 600; 
+    color: $grey_color;
+    @include xs_text;
+    margin: 30px auto 0 auto;
+    text-decoration: none;
+}
+
+.checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.checkbox_container {
+    display: flex;
+    label {
+        cursor: pointer;
+        margin: auto 0 auto 12px;
+    }
+    input {
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+    }
+    input:checked {
+        background: #B5B5B5;
+    }
+}
